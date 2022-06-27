@@ -29,7 +29,11 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
 
   const onInputChangeEditSentence = (e, index) => {
     const bestSentencesArray: string[] = characterEdited.bestSentences;
-    bestSentencesArray[index] = e.target.value;
+    if (e) {
+      bestSentencesArray[index] = e.target.value;
+    } else {
+      bestSentencesArray.splice(index, 1);
+    }
     setCharacterEdited({
       ...characterEdited,
       bestSentences: bestSentencesArray,
@@ -86,6 +90,11 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
                       type="text"
                       value={sentence}
                     />
+                    <button
+                      onClick={(e) => onInputChangeEditSentence(null, index)}
+                    >
+                      Delete
+                    </button>
                   </li>
                 ))}
               </ul>
