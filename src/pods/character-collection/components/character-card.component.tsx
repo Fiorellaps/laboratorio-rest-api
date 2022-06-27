@@ -41,11 +41,11 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
           </Typography>
         </div>
       </CardContent>
-      <CardActions>
+      {/*<CardActions>
         <IconButton onClick={() => onView(character.id)}>
           <RemoveRedEyeIcon color="action" />
         </IconButton>
-      </CardActions>
+  </CardActions>*/}
     </Card>
   );
 };
